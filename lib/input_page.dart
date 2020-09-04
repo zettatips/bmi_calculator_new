@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
-import 'widget_utils.dart' show screenAwareSize;
 import 'package:bmi_calculator_new/gender_card.dart';
+import 'package:bmi_calculator_new/weight_card.dart';
+import 'package:flutter/material.dart';
+
+import 'widget_utils.dart' show screenAwareSize;
 
 class InputPage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -32,15 +34,6 @@ class InputPage extends StatelessWidget {
     );
   }
 
-  Widget _buildBottom(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: screenAwareSize(108.0, context),
-      width: double.infinity,
-      child: Switch(value: true, onChanged: (val) {}),
-    );
-  }
-
   Widget _buildCards(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
@@ -54,7 +47,7 @@ class InputPage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Expanded(child: GenderCard()),
-                Expanded(child: _tempCard("Weight")),
+                Expanded(child: WeightCard()),
               ],
             ),
           ),
@@ -71,6 +64,15 @@ class InputPage extends StatelessWidget {
         height: double.infinity,
         child: Text(label),
       ),
+    );
+  }
+
+  Widget _buildBottom(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: screenAwareSize(108.0, context),
+      width: double.infinity,
+      child: Switch(value: true, onChanged: (val) {}),
     );
   }
 }
