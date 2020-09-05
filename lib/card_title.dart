@@ -1,4 +1,3 @@
-import 'package:bmi_calculator_new/widget_utils.dart' show screenAwareSize;
 import 'package:flutter/material.dart';
 
 const TextStyle _titleStyle = TextStyle(
