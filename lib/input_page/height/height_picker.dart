@@ -107,7 +107,7 @@ class _HeightPickerState extends State<HeightPicker> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: SvgPicture.asset(
-        "assets/images/person.svg",
+        "images/person.svg",
         height: personImageHeight,
         width: personImageHeight / 3,
       ),
