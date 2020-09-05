@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:bmi_calculator_new/height/height_styles.dart';
-import 'package:bmi_calculator_new/height/height_slider.dart';
+import 'package:bmi_calculator_new/input_page/height/height_styles.dart';
+import 'package:bmi_calculator_new/input_page/height/height_slider.dart';
 import 'package:bmi_calculator_new/widget_utils.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
