@@ -3,6 +3,7 @@ import 'package:bmi_calculator_new/input_page/gender/gender_card.dart';
 import 'package:bmi_calculator_new/input_page/height/height_card.dart';
 import 'package:bmi_calculator_new/input_page/input_page_styles.dart';
 import 'package:bmi_calculator_new/input_page/weight/weight_card.dart';
+import 'package:bmi_calculator_new/input_page/pacman_slider.dart';
 import 'package:bmi_calculator_new/model/gender.dart';
 import 'package:bmi_calculator_new/widget_utils.dart';
 import 'package:flutter/material.dart';
@@ -79,10 +80,7 @@ class InputPageState extends State<InputPage> {
         bottom: screenAwareSize(22.0, context),
         top: screenAwareSize(14.0, context),
       ),
-      child: Placeholder(
-        fallbackHeight: screenAwareSize(52.0, context),
-        color: Theme.of(context).primaryColor,
-      ),
+      child: PacmanSlider(),
     );
   }
 }
