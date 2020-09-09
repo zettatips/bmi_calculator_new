@@ -1,10 +1,13 @@
-import 'package:bmi_calculator_new/input_page/app_bar.dart';
+import 'package:bmi_calculator_new/app_bar.dart';
+import 'package:bmi_calculator_new/fade_route.dart';
 import 'package:bmi_calculator_new/input_page/gender/gender_card.dart';
 import 'package:bmi_calculator_new/input_page/height/height_card.dart';
 import 'package:bmi_calculator_new/input_page/input_page_styles.dart';
-import 'package:bmi_calculator_new/input_page/weight/weight_card.dart';
 import 'package:bmi_calculator_new/input_page/pacman_slider.dart';
+import 'package:bmi_calculator_new/input_page/transition_dot.dart';
+import 'package:bmi_calculator_new/input_page/weight/weight_card.dart';
 import 'package:bmi_calculator_new/model/gender.dart';
+import 'package:bmi_calculator_new/result_page/result_page.dart';
 import 'package:bmi_calculator_new/widget_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -15,29 +18,56 @@ class InputPage extends StatefulWidget {
   }
 }
 
-class InputPageState extends State<InputPage> {
+class InputPageState extends State<InputPage> with TickerProviderStateMixin {
+  AnimationController _submitAnimationController;
   Gender gender = Gender.other;
-  int height = 170;
+  int height = 180;
   int weight = 70;
 
+  @override
+  void initState() {
+    super.initState();
+    _submitAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+    _submitAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _goToResultPage().then((_) => _submitAnimationController.reset());
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _submitAnimationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        child: BmiAppBar(),
-        preferredSize: Size.fromHeight(appBarHeight(context)),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          InputSummaryCard(
-            gender: gender,
-            weight: weight,
-            height: height,
+    return Stack(
+      children: <Widget>[
+        Scaffold(
+          appBar: PreferredSize(
+            child: BmiAppBar(),
+            preferredSize: Size.fromHeight(appBarHeight(context)),
           ),
-          Expanded(child: _buildCards(context)),
-          _buildBottom(context),
-        ],
-      ),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              InputSummaryCard(
+                gender: gender,
+                weight: weight,
+                height: height,
+              ),
+              Expanded(child: _buildCards(context)),
+              _buildBottom(context),
+            ],
+          ),
+        ),
+        TransitionDot(animation: _submitAnimationController),
+      ],
     );
   }
 
@@ -80,8 +110,25 @@ class InputPageState extends State<InputPage> {
         bottom: screenAwareSize(22.0, context),
         top: screenAwareSize(14.0, context),
       ),
-      child: PacmanSlider(),
+      child: PacmanSlider(
+        submitAnimationController: _submitAnimationController,
+        onSubmit: onPacmanSubmit,
+      ),
     );
+  }
+
+  void onPacmanSubmit() {
+    _submitAnimationController.forward();
+  }
+
+  _goToResultPage() async {
+    return Navigator.of(context).push(FadeRoute(
+      builder: (context) => ResultPage(
+        weight: weight,
+        height: height,
+        gender: gender,
+      ),
+    ));
   }
 }
 
