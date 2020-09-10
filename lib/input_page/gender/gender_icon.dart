@@ -13,20 +13,20 @@ class GenderIconTranslated extends StatelessWidget {
 
   static final Map<Gender, String> _genderImages = {
     Gender.female: "images/gender_female.svg",
-    Gender.other: "images/gender_other.svg",
+    //Gender.other: "images/gender_other.svg",
     Gender.male: "images/gender_male.svg",
   };
 
-  bool get _isOtherGender => gender == Gender.other;
+  bool get _isMaleGender => gender == Gender.male;
 
   String get _assetName => _genderImages[gender];
 
   double _iconSize(BuildContext context) {
-    return screenAwareSize(_isOtherGender ? 22.0 : 16.0, context);
+    return screenAwareSize(_isMaleGender ? 22.0 : 16.0, context);
   }
 
   double _genderLeftPadding(BuildContext context) {
-    return screenAwareSize(_isOtherGender ? 8.0 : 0.0, context);
+    return screenAwareSize(_isMaleGender ? 8.0 : 0.0, context);
   }
 
   @override

@@ -13,7 +13,7 @@ class GenderCard extends StatefulWidget {
 
   const GenderCard({
     Key key,
-    this.gender = Gender.other,
+    this.gender = Gender.male,
     this.onChanged,
   }) : super(key: key);
 
@@ -75,10 +75,6 @@ class _GenderCardState extends State<GenderCard>
             isSelected: widget.gender == Gender.female,
           ),
           GenderIconTranslated(
-            gender: Gender.other,
-            isSelected: widget.gender == Gender.other,
-          ),
-          GenderIconTranslated(
             gender: Gender.male,
             isSelected: widget.gender == Gender.male,
           ),
@@ -127,8 +123,6 @@ class TapHandler extends StatelessWidget {
       children: <Widget>[
         Expanded(
             child: GestureDetector(onTap: () => onGenderTapped(Gender.female))),
-        Expanded(
-            child: GestureDetector(onTap: () => onGenderTapped(Gender.other))),
         Expanded(
             child: GestureDetector(onTap: () => onGenderTapped(Gender.male))),
       ],

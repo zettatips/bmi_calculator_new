@@ -20,7 +20,7 @@ class InputPage extends StatefulWidget {
 
 class InputPageState extends State<InputPage> with TickerProviderStateMixin {
   AnimationController _submitAnimationController;
-  Gender gender = Gender.other;
+  Gender gender = Gender.male;
   int height = 180;
   int weight = 70;
 
@@ -160,8 +160,8 @@ class InputSummaryCard extends StatelessWidget {
   }
 
   Widget _genderText() {
-    String genderText = gender == Gender.other
-        ? '-'
+    String genderText = gender == Gender.male
+        ? 'Male'
         : (gender == Gender.male ? 'Male' : 'Female');
     return _text(genderText);
   }

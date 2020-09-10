@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 const double defaultGenderAngle = math.pi / 4;
 const Map<Gender, double> genderAngles = {
   Gender.female: -defaultGenderAngle,
-  Gender.other: 0.0,
+  //Gender.other: 0.0,
   Gender.male: defaultGenderAngle,
 };
 
