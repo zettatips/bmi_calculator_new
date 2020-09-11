@@ -10,15 +10,9 @@ A Flutter project based on tutorial below:
 - [Part 6- Custom Slider](https://medium.com/flutter-community/bmi-calculator-in-flutter-part-6-custom-slider-c5b86af121a0) 
 - [Part 7- Animated Transition](https://medium.com/flutter-community/bmi-calculator-in-flutter-part-7-animated-transition-afb609c3665f)
 
-## Getting Started
+## Reference
 
-This project is a starting point for a Flutter application.
+- [Marcinus](https://github.com/MarcinusX/bmi_calculator)
+- [Implementation of Johny Vino](https://dribbble.com/johnyvino)'s [design](https://dribbble.com/shots/3558444-BMI-Calculator).
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
