@@ -13,6 +13,6 @@ A Flutter project based on tutorial below:
 ## Reference
 
 - [Marcinus](https://github.com/MarcinusX/bmi_calculator)
-- [Implementation of Johny Vino](https://dribbble.com/johnyvino)'s [design](https://dribbble.com/shots/3558444-BMI-Calculator).
+- Implementation of [Johny Vino](https://dribbble.com/johnyvino)'s [design](https://dribbble.com/shots/3558444-BMI-Calculator).
 
 
